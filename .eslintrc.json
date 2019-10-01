@@ -1,0 +1,30 @@
+{
+	"extends": [
+		"eslint:recommended",
+		"plugin:react/recommended",
+		"plugin:@typescript-eslint/recommended",
+		"prettier/@typescript-eslint",
+		"plugin:prettier/recommended"
+	],
+	"plugins": [
+		"react",
+		"@typescript-eslint",
+		"prettier"
+	],
+	"env": {
+		"browser": true,
+		"jest": true
+	},
+	"rules": {
+		"indent": [
+			"error",
+			"tab"
+		],
+		"quotes": [
+			"error",
+			"double"
+		],
+		"@typescript-eslint/explicit-function-return-type": 0
+	},
+	"parser": "@typescript-eslint/parser"
+}

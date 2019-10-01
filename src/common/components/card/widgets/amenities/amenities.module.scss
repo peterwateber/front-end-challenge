@@ -1,0 +1,16 @@
+.content {
+	padding: 0.8rem 1.25rem;
+	@media (min-width: 768px) {
+		padding: 1.25rem;
+	}
+}
+
+.icon-holder {
+	width: 1.7em;
+	display: inline-block;
+}
+
+.amenities-list > li {
+	margin-bottom: 5px;
+	font-size: 85%;
+}

@@ -1,68 +1,117 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Project URL
 
-## Available Scripts
+https://peter-busbud-coding-challenge.herokuapp.com
 
-In the project directory, you can run:
+# Run test
 
-### `npm start`
+`npm t`
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+# File Structure
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+```
+common/
+	components/
+		card/
+		layout/
+		search/
+	icons-svg/
+		bus/
+pages/
+utilities/
+```
 
-### `npm test`
+# File Naming and Standards
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Using kebab case for all components, tests, and directories
 
-### `npm run build`
+#### Folders
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```
+icons-svg/
+```
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+#### Files
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+##### Javascript: `page.tsx` `sample-page.tsx` `sample-page.test.tsx`
 
-### `npm run eject`
+##### CSS: `content.module.scss` `page.module.css`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+##### Tests: `mytest.test.tsx` `myothertest.test.ts`
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+#### Variables
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+-   Javascript
+    `const myVariable`
+    `class MyClass`
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+-   [CSS/SCSS modules](https://create-react-app.dev/docs/adding-a-css-modules-stylesheet)
 
-## Learn More
+    -   `content.module.scss`
+    -   `page.module.css`
+    -   Naming (CLASS and ID)
+        -   `.my-class-name { }` - `#idName`
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+# Convention
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Each folder contains `index.tsx` which is the first entry point. Relative to the directory are files that are chopped for reusability purposes.
 
-### Code Splitting
+#### Example: Card component
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+Structured below:
 
-### Analyzing the Bundle Size
+```
+common/
+	components/
+		card/
+			__tests__/
+			widgets/
+			card.module.scss
+			compressed.tsx
+			uncompressed.tsx
+			index.tsx
+```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+`Card component` have two views:
 
-### Making a Progressive Web App
+1. Uncompressed
+    - Full width block cards used as the default view.
+    - Displays: - Origin and destination cities - Detail toggle: - Detail views for amenities and terms
+2. Compressed
+    - Full width blocks cards used for combining common operators
+    - Displays: - Price range [min] - [max]
+    - Detail toggle: - List of trips available - Detail views for origin and destination cities - Detail views for amenities and terms
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+#### Pages
 
-### Advanced Configuration
+Since we only have one page, `index.tsx`, no need to categorise.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+```
+	__tests__
+	index.tsx
+```
 
-### Deployment
+If we have different pages, then we can do so by following the format:
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+```
+	pages/
+		__tests__
+		home/
+			__tests__/
+			index.tsx
+		about-us/
+			__tests__/
+			index.tsx
+		...
+```
 
-### `npm run build` fails to minify
+#### Utilities
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Generally used for logic stuff.
+
+```
+	utilities/
+		factory/
+			__tests__/
+		types/
+		transform/
+```
